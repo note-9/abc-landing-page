@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ABC Classes – Where Learning Comes Alive</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --yellow: #FFD600;
+    --orange: #FF6B35;
+    --blue: #1A73E8;
+    --teal: #00BFA5;
+    --purple: #7C4DFF;
+    --dark: #1A1A2E;
+    --light: #FFFDF4;
+    --white: #ffffff;
+    --gray: #f5f5f5;
+    --text: #2d2d2d;
+    --muted: #666;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Nunito', sans-serif;
+    background: var(--light);
+    color: var(--text);
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 999;
+    background: var(--white);
+    box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 5%;
+    height: 68px;
+  }
+  .nav-logo {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--dark);
+    text-decoration: none;
+  }
+  .nav-logo span { color: var(--orange); }
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+  .nav-links a {
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: var(--text);
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--orange); }
+  .nav-cta {
+    background: var(--orange);
+    color: white !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 50px;
+    transition: transform 0.2s, box-shadow 0.2s !important;
+  }
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 16px rgba(255,107,53,0.4) !important; color: white !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1A1A2E 0%, #16213E 50%, #0F3460 100%);
+    display: flex;
+    align-items: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg-shapes .shape {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.12;
+  }
+  .shape-1 { width: 500px; height: 500px; background: var(--yellow); top: -150px; right: -100px; }
+  .shape-2 { width: 300px; height: 300px; background: var(--orange); bottom: -80px; left: -60px; }
+  .shape-3 { width: 200px; height: 200px; background: var(--teal); top: 40%; right: 20%; }
+  .floating-emoji {
+    position: absolute;
+    font-size: 2.5rem;
+    animation: float 4s ease-in-out infinite;
+    opacity: 0.85;
+  }
+  .e1 { top: 20%; left: 55%; animation-delay: 0s; }
+  .e2 { top: 60%; left: 65%; animation-delay: 1s; }
+  .e3 { top: 30%; left: 75%; animation-delay: 2s; }
+  .e4 { top: 70%; left: 50%; animation-delay: 0.5s; }
+  @keyframes float {
+    0%, 100% { transform: translateY(0px) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(8deg); }
+  }
+  .hero-content { max-width: 620px; z-index: 2; position: relative; }
+  .hero-badge {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--dark);
+    font-weight: 800;
+    font-size: 0.85rem;
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.5px;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero h1 {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    font-weight: 800;
+    color: var(--white);
+    line-height: 1.15;
+    margin-bottom: 1.2rem;
+    animation: fadeUp 0.8s ease both 0.1s;
+  }
+  .hero h1 .highlight {
+    color: var(--yellow);
+    position: relative;
+    display: inline-block;
+  }
+  .hero p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.75);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    animation: fadeUp 0.8s ease both 0.2s;
+  }
+  .hero-btns {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    animation: fadeUp 0.8s ease both 0.3s;
+  }
+  .btn-primary {
+    background: var(--orange);
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(255,107,53,0.5); }
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    padding: 0.9rem 2rem;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 2px solid rgba(255,255,255,0.4);
+    transition: all 0.2s;
+  }
+  .btn-secondary:hover { border-color: var(--yellow); color: var(--yellow); }
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    margin-top: 3rem;
+    animation: fadeUp 0.8s ease both 0.4s;
+  }
+  .stat { text-align: left; }
+  .stat-num {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--yellow);
+    display: block;
+  }
+  .stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.6); font-weight: 600; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* SECTION COMMON */
+  section { padding: 80px 5%; }
+  .section-tag {
+    display: inline-block;
+    background: var(--yellow);
+    color: var(--dark);
+    font-weight: 800;
+    font-size: 0.8rem;
+    padding: 0.3rem 0.9rem;
+    border-radius: 50px;
+    margin-bottom: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .section-title {
+    font-family: 'Baloo 2', cursive;
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    font-weight: 800;
+    line-height: 1.2;
+    margin-bottom: 0.8rem;
+    color: var(--dark);
+  }
+  .section-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 500px;
+    line-height: 1.7;
+  }
+
+  /* ABOUT */
+  #about { background: var(--white); }
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5rem;
+    align-items: center;
+    margin-top: 3rem;
+  }
+  .about-visual {
+    background: linear-gradient(135deg, var(--blue), var(--teal));
+    border-radius: 24px;
+    padding: 3rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .about-visual::before {
+    content: '';
+    position: absolute;
+    top: -50px; right: -50px;
+    width: 200px; height: 200px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+  }
+  .about-icon { font-size: 5rem; display: block; margin-bottom: 1rem; }
+  .about-visual h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.5rem;
+    color: white;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+  .about-visual p { color: rgba(255,255,255,0.85); font-size: 0.95rem; line-height: 1.6; }
+  .about-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    margin-top: 2rem;
+  }
+  .pill {
+    background: var(--gray);
+    color: var(--dark);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  /* COURSES */
+  #courses { background: var(--gray); }
+  .courses-header { text-align: center; margin-bottom: 3rem; }
+  .courses-header .section-sub { margin: 0 auto; }
+  .courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+  }
+  .course-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: transform 0.25s, box-shadow 0.25s;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .course-card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(0,0,0,0.1); }
+  .course-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 5px;
+    border-radius: 20px 20px 0 0;
+  }
+  .card-blue::before { background: var(--blue); }
+  .card-orange::before { background: var(--orange); }
+  .card-teal::before { background: var(--teal); }
+  .card-purple::before { background: var(--purple); }
+  .card-yellow::before { background: var(--yellow); }
+  .card-pink::before { background: #E91E63; }
+  .course-emoji { font-size: 2.5rem; margin-bottom: 1rem; display: block; }
+  .course-card h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 0.5rem;
+  }
+  .course-card p { font-size: 0.9rem; color: var(--muted); line-height: 1.6; margin-bottom: 1.2rem; }
+  .course-tags { display: flex; gap: 0.4rem; flex-wrap: wrap; }
+  .course-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    padding: 0.2rem 0.6rem;
+    border-radius: 50px;
+    background: var(--gray);
+    color: var(--muted);
+  }
+
+  /* FACULTY */
+  #faculty { background: var(--white); }
+  .faculty-header { text-align: center; margin-bottom: 3rem; }
+  .faculty-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+  }
+  .faculty-card {
+    text-align: center;
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    background: var(--gray);
+    transition: transform 0.25s;
+  }
+  .faculty-card:hover { transform: translateY(-5px); }
+  .faculty-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+  }
+  .av-blue { background: linear-gradient(135deg, var(--blue), #64B5F6); }
+  .av-orange { background: linear-gradient(135deg, var(--orange), #FFB347); }
+  .av-teal { background: linear-gradient(135deg, var(--teal), #80CBC4); }
+  .av-purple { background: linear-gradient(135deg, var(--purple), #B39DDB); }
+  .faculty-card h4 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: var(--dark);
+  }
+  .faculty-card .subject {
+    font-size: 0.85rem;
+    color: var(--orange);
+    font-weight: 700;
+    margin: 0.2rem 0;
+  }
+  .faculty-card .exp { font-size: 0.82rem; color: var(--muted); }
+
+  /* TESTIMONIALS */
+  #results { background: linear-gradient(135deg, var(--dark) 0%, #16213E 100%); }
+  .results-header { text-align: center; margin-bottom: 3rem; }
+  .results-header .section-title { color: var(--white); }
+  .results-header .section-tag { background: var(--yellow); }
+  .results-header .section-sub { color: rgba(255,255,255,0.6); margin: 0 auto; }
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+  .testimonial-card {
+    background: rgba(255,255,255,0.07);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 20px;
+    padding: 2rem;
+    transition: transform 0.25s;
+  }
+  .testimonial-card:hover { transform: translateY(-4px); }
+  .stars { color: var(--yellow); font-size: 1rem; margin-bottom: 0.8rem; }
+  .testimonial-card p { color: rgba(255,255,255,0.8); font-size: 0.95rem; line-height: 1.7; margin-bottom: 1.2rem; font-style: italic; }
+  .testimonial-author { display: flex; align-items: center; gap: 0.8rem; }
+  .author-avatar {
+    width: 42px; height: 42px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: white;
+  }
+  .aa1 { background: var(--orange); }
+  .aa2 { background: var(--teal); }
+  .aa3 { background: var(--blue); }
+  .aa4 { background: var(--purple); }
+  .author-info .name { font-weight: 800; color: white; font-size: 0.9rem; }
+  .author-info .class { color: rgba(255,255,255,0.5); font-size: 0.8rem; }
+  .result-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1.5rem;
+  }
+  .result-box {
+    background: var(--yellow);
+    border-radius: 16px;
+    padding: 1.5rem;
+    text-align: center;
+  }
+  .result-box .big-num {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--dark);
+    display: block;
+  }
+  .result-box .label { font-size: 0.85rem; font-weight: 700; color: rgba(0,0,0,0.6); }
+
+  /* FEES */
+  #fees { background: var(--gray); }
+  .fees-header { text-align: center; margin-bottom: 3rem; }
+  .fees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  .fees-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 2.5rem 2rem;
+    text-align: center;
+    transition: transform 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+  .fees-card:hover { transform: translateY(-5px); }
+  .fees-card.popular {
+    background: linear-gradient(135deg, var(--orange), #FF8C42);
+    color: white;
+  }
+  .popular-badge {
+    position: absolute;
+    top: 16px; right: -10px;
+    background: var(--yellow);
+    color: var(--dark);
+    font-size: 0.75rem;
+    font-weight: 800;
+    padding: 0.3rem 1.2rem 0.3rem 0.8rem;
+    border-radius: 50px 0 0 50px;
+  }
+  .fees-card h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.2rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+  }
+  .fees-card .price {
+    font-family: 'Baloo 2', cursive;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--orange);
+    margin: 0.8rem 0;
+    display: block;
+  }
+  .fees-card.popular .price { color: var(--yellow); }
+  .fees-card .per { font-size: 0.85rem; color: var(--muted); margin-bottom: 1.5rem; }
+  .fees-card.popular .per { color: rgba(255,255,255,0.7); }
+  .fees-list { list-style: none; text-align: left; margin-bottom: 2rem; }
+  .fees-list li {
+    font-size: 0.9rem;
+    padding: 0.4rem 0;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  .fees-card.popular .fees-list li { color: rgba(255,255,255,0.9); }
+  .fees-list li::before { content: '✓'; color: var(--teal); font-weight: 800; }
+  .fees-card.popular .fees-list li::before { color: var(--yellow); }
+  .btn-enroll {
+    display: block;
+    padding: 0.8rem;
+    border-radius: 50px;
+    font-weight: 800;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all 0.2s;
+    text-align: center;
+  }
+  .btn-enroll-outline {
+    border: 2px solid var(--orange);
+    color: var(--orange);
+  }
+  .btn-enroll-outline:hover { background: var(--orange); color: white; }
+  .btn-enroll-solid { background: var(--yellow); color: var(--dark); }
+  .btn-enroll-solid:hover { background: white; }
+
+  /* CONTACT */
+  #contact { background: var(--white); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: start;
+    margin-top: 3rem;
+  }
+  .contact-info h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 1rem;
+  }
+  .contact-info p { color: var(--muted); line-height: 1.7; margin-bottom: 2rem; }
+  .contact-items { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.2rem;
+    background: var(--gray);
+    border-radius: 14px;
+  }
+  .contact-icon {
+    width: 44px; height: 44px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+  }
+  .ci-orange { background: rgba(255,107,53,0.15); }
+  .ci-blue { background: rgba(26,115,232,0.15); }
+  .ci-teal { background: rgba(0,191,165,0.15); }
+  .contact-item span { font-weight: 700; color: var(--dark); font-size: 0.95rem; }
+  .contact-form {
+    background: var(--gray);
+    border-radius: 24px;
+    padding: 2.5rem;
+  }
+  .contact-form h3 {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.4rem;
+    font-weight: 800;
+    color: var(--dark);
+    margin-bottom: 1.5rem;
+  }
+  .form-group { margin-bottom: 1.2rem; }
+  .form-group label { display: block; font-size: 0.85rem; font-weight: 700; color: var(--text); margin-bottom: 0.4rem; }
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid transparent;
+    background: white;
+    border-radius: 12px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 0.95rem;
+    color: var(--text);
+    transition: border-color 0.2s;
+    outline: none;
+  }
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus { border-color: var(--orange); }
+  .form-group textarea { resize: vertical; min-height: 100px; }
+  .btn-submit {
+    width: 100%;
+    background: var(--orange);
+    color: white;
+    border: none;
+    padding: 1rem;
+    border-radius: 50px;
+    font-family: 'Nunito', sans-serif;
+    font-size: 1rem;
+    font-weight: 800;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  .btn-submit:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(255,107,53,0.4); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.6);
+    padding: 2.5rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  .footer-logo {
+    font-family: 'Baloo 2', cursive;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+  }
+  .footer-logo span { color: var(--yellow); }
+  footer p { font-size: 0.85rem; }
+  .footer-links { display: flex; gap: 1.5rem; }
+  .footer-links a { color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.85rem; font-weight: 600; transition: color 0.2s; }
+  .footer-links a:hover { color: var(--yellow); }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
+    .hero-stats { gap: 1.5rem; }
+    .e1, .e2, .e3, .e4 { display: none; }
+    .nav-links { display: none; }
+    footer { flex-direction: column; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">ABC <span>Classes</span></a>
+  <ul class="nav-links">
+    <li><a href="#home">Home</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#faculty">Faculty</a></li>
+    <li><a href="#fees">Fees</a></li>
+    <li><a href="#contact" class="nav-cta">Enquire Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <div class="hero-bg-shapes">
+    <div class="shape shape-1"></div>
+    <div class="shape shape-2"></div>
+    <div class="shape shape-3"></div>
+  </div>
+  <span class="floating-emoji e1">📚</span>
+  <span class="floating-emoji e2">🏆</span>
+  <span class="floating-emoji e3">🎯</span>
+  <span class="floating-emoji e4">✏️</span>
+  <div class="hero-content">
+    <div class="hero-badge">🌟 Trusted by 1000+ Students</div>
+    <h1>Where Every Student <span class="highlight">Shines Bright!</span></h1>
+    <p>ABC Classes delivers expert coaching for students from Class 6 to 12 — with personalised attention, proven results, and a learning environment students actually love.</p>
+    <div class="hero-btns">
+      <a href="#courses" class="btn-primary">🚀 Explore Courses</a>
+      <a href="#contact" class="btn-secondary">Get Free Counselling</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">1200+</span>
+        <span class="stat-label">Students Enrolled</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">95%</span>
+        <span class="stat-label">Pass Rate</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">12+</span>
+        <span class="stat-label">Expert Teachers</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about-grid">
+    <div>
+      <span class="section-tag">About Us</span>
+      <h2 class="section-title">Building Bright Futures Since 2010</h2>
+      <p class="section-sub">At ABC Classes, we believe every child has the potential to excel. Our experienced faculty, small batch sizes, and structured curriculum ensure that each student gets the attention they deserve.</p>
+      <div class="about-pills" style="margin-top: 2rem;">
+        <div class="pill">✅ Small Batch Sizes</div>
+        <div class="pill">📊 Regular Tests & Reports</div>
+        <div class="pill">📞 Parent Updates</div>
+        <div class="pill">🖥️ Doubt Clearing Sessions</div>
+        <div class="pill">📝 Study Material Included</div>
+        <div class="pill">🏅 Scholarship Programs</div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <span class="about-icon">🎓</span>
+      <h3>Our Mission</h3>
+      <p>To provide quality, affordable education that empowers students to achieve top scores and build a strong academic foundation for life.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section id="courses">
+  <div class="courses-header">
+    <span class="section-tag">Courses</span>
+    <h2 class="section-title">Courses We Offer</h2>
+    <p class="section-sub">Comprehensive coaching for school, board exams, and competitive entrance tests.</p>
+  </div>
+  <div class="courses-grid">
+    <div class="course-card card-blue">
+      <span class="course-emoji">🔢</span>
+      <h3>Mathematics</h3>
+      <p>From basics to advanced — algebra, geometry, calculus, and board exam prep with step-by-step problem solving.</p>
+      <div class="course-tags">
+        <span class="course-tag">Class 6–12</span>
+        <span class="course-tag">Board Prep</span>
+      </div>
+    </div>
+    <div class="course-card card-orange">
+      <span class="course-emoji">🔬</span>
+      <h3>Science</h3>
+      <p>Physics, Chemistry & Biology made easy through experiments, concept clarity, and exam-focused practice.</p>
+      <div class="course-tags">
+        <span class="course-tag">Class 8–12</span>
+        <span class="course-tag">CBSE/ICSE</span>
+      </div>
+    </div>
+    <div class="course-card card-teal">
+      <span class="course-emoji">🌍</span>
+      <h3>Social Studies</h3>
+      <p>History, Geography, Civics & Economics — taught with maps, timelines, and mnemonic techniques.</p>
+      <div class="course-tags">
+        <span class="course-tag">Class 6–10</span>
+        <span class="course-tag">Board Prep</span>
+      </div>
+    </div>
+    <div class="course-card card-purple">
+      <span class="course-emoji">📖</span>
+      <h3>English Language</h3>
+      <p>Grammar, writing, comprehension, and spoken English — build confidence and score high in boards.</p>
+      <div class="course-tags">
+        <span class="course-tag">All Classes</span>
+        <span class="course-tag">Communication</span>
+      </div>
+    </div>
+    <div class="course-card card-yellow">
+      <span class="course-emoji">🎯</span>
+      <h3>JEE / NEET Foundation</h3>
+      <p>Early preparation for engineering and medical entrance exams — concept-based, from Class 9 onwards.</p>
+      <div class="course-tags">
+        <span class="course-tag">Class 9–12</span>
+        <span class="course-tag">Competitive</span>
+      </div>
+    </div>
+    <div class="course-card card-pink">
+      <span class="course-emoji">🧮</span>
+      <h3>Vedic Maths</h3>
+      <p>Speed maths techniques to solve complex calculations in seconds — great for all exams and daily life.</p>
+      <div class="course-tags">
+        <span class="course-tag">Class 4–10</span>
+        <span class="course-tag">Speed Skills</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FACULTY -->
+<section id="faculty">
+  <div class="faculty-header">
+    <span class="section-tag">Our Faculty</span>
+    <h2 class="section-title">Learn from the Best</h2>
+    <p class="section-sub" style="margin: 0 auto;">Experienced, passionate educators who go beyond the textbook.</p>
+  </div>
+  <div class="faculty-grid">
+    <div class="faculty-card">
+      <div class="faculty-avatar av-blue">👨‍🏫</div>
+      <h4>Mr. Rajesh Sharma</h4>
+      <div class="subject">Mathematics</div>
+      <div class="exp">15+ Years Experience • IIT Delhi Alumni</div>
+    </div>
+    <div class="faculty-card">
+      <div class="faculty-avatar av-orange">👩‍🔬</div>
+      <h4>Ms. Priya Verma</h4>
+      <div class="subject">Physics & Chemistry</div>
+      <div class="exp">12+ Years Experience • M.Sc. Chemistry</div>
+    </div>
+    <div class="faculty-card">
+      <div class="faculty-avatar av-teal">👩‍🏫</div>
+      <h4>Ms. Sunita Kaur</h4>
+      <div class="subject">English & Literature</div>
+      <div class="exp">10+ Years Experience • MA English</div>
+    </div>
+    <div class="faculty-card">
+      <div class="faculty-avatar av-purple">👨‍🔭</div>
+      <h4>Mr. Ankit Gupta</h4>
+      <div class="subject">Biology & Science</div>
+      <div class="exp">8+ Years Experience • MBBS Graduate</div>
+    </div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS / RESULTS -->
+<section id="results">
+  <div class="results-header">
+    <span class="section-tag">Results & Reviews</span>
+    <h2 class="section-title">Students Who Made Us Proud</h2>
+    <p class="section-sub">Real results, real stories from our students and parents.</p>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"My daughter scored 95% in boards this year. The teachers here are incredibly patient and explain concepts beautifully."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar aa1">P</div>
+        <div class="author-info">
+          <div class="name">Pooja's Mother</div>
+          <div class="class">Class 12, Science Stream</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"I used to hate Maths. After joining ABC Classes, I actually look forward to the sessions! Cleared JEE Mains this year."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar aa2">R</div>
+        <div class="author-info">
+          <div class="name">Rohit Mehta</div>
+          <div class="class">Class 12, JEE Aspirant</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"The small batch sizes mean my son actually gets individual attention. His grades went from 65% to 88% in one year!"</p>
+      <div class="testimonial-author">
+        <div class="author-avatar aa3">A</div>
+        <div class="author-info">
+          <div class="name">Arjun's Father</div>
+          <div class="class">Class 9, Regular Batch</div>
+        </div>
+      </div>
+    </div>
+    <div class="testimonial-card">
+      <div class="stars">★★★★★</div>
+      <p>"Very systematic study material, regular tests, and detailed feedback. Best decision we made for Riya's education."</p>
+      <div class="testimonial-author">
+        <div class="author-avatar aa4">R</div>
+        <div class="author-info">
+          <div class="name">Riya's Parents</div>
+          <div class="class">Class 10, Board Prep</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="result-highlights">
+    <div class="result-box">
+      <span class="big-num">95%</span>
+      <span class="label">Board Pass Rate 2024</span>
+    </div>
+    <div class="result-box">
+      <span class="big-num">120+</span>
+      <span class="label">90%+ Scorers This Year</span>
+    </div>
+    <div class="result-box">
+      <span class="big-num">45+</span>
+      <span class="label">JEE/NEET Qualifiers</span>
+    </div>
+    <div class="result-box">
+      <span class="big-num">4.9⭐</span>
+      <span class="label">Average Parent Rating</span>
+    </div>
+  </div>
+</section>
+
+<!-- FEES -->
+<section id="fees">
+  <div class="fees-header">
+    <span class="section-tag">Fee Structure</span>
+    <h2 class="section-title">Transparent & Affordable Plans</h2>
+    <p class="section-sub" style="margin: 0 auto;">Quality education shouldn't break the bank. Choose the plan that fits your child.</p>
+  </div>
+  <div class="fees-grid">
+    <div class="fees-card">
+      <h3>Foundation</h3>
+      <span class="price">₹1,500</span>
+      <div class="per">per month / per subject</div>
+      <ul class="fees-list">
+        <li>1 Subject of Choice</li>
+        <li>Batch Strength: Max 20</li>
+        <li>Weekly Tests Included</li>
+        <li>Study Material Provided</li>
+        <li>Monthly Parent Report</li>
+      </ul>
+      <a href="#contact" class="btn-enroll btn-enroll-outline">Enrol Now</a>
+    </div>
+    <div class="fees-card popular">
+      <div class="popular-badge">🔥 Most Popular</div>
+      <h3>Complete Scholar</h3>
+      <span class="price">₹4,000</span>
+      <div class="per">per month / all core subjects</div>
+      <ul class="fees-list">
+        <li>Maths + Science + English</li>
+        <li>Batch Strength: Max 15</li>
+        <li>Bi-weekly Tests + Analysis</li>
+        <li>Full Study Kit Included</li>
+        <li>WhatsApp Parent Updates</li>
+        <li>Doubt Clearing Sessions</li>
+      </ul>
+      <a href="#contact" class="btn-enroll btn-enroll-solid">Enrol Now</a>
+    </div>
+    <div class="fees-card">
+      <h3>Competitive Prep</h3>
+      <span class="price">₹6,500</span>
+      <div class="per">per month / JEE or NEET track</div>
+      <ul class="fees-list">
+        <li>PCM or PCB Full Coverage</li>
+        <li>Batch Strength: Max 12</li>
+        <li>Weekly Mock Tests</li>
+        <li>Previous Year Papers</li>
+        <li>1-on-1 Mentorship Sessions</li>
+        <li>Performance Dashboard</li>
+      </ul>
+      <a href="#contact" class="btn-enroll btn-enroll-outline">Enrol Now</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <span class="section-tag">Contact Us</span>
+  <h2 class="section-title">Let's Get Your Child Started!</h2>
+  <div class="contact-grid">
+    <div class="contact-info">
+      <h3>Visit Us or Reach Out Anytime</h3>
+      <p>We offer free counselling sessions to help you choose the right program for your child. Get in touch today!</p>
+      <div class="contact-items">
+        <div class="contact-item">
+          <div class="contact-icon ci-orange">📍</div>
+          <span>123, Knowledge Street, Near City Park, New Delhi – 110001</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon ci-blue">📞</div>
+          <span>+91 98765 43210</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon ci-teal">✉️</div>
+          <span>hello@abcclasses.in</span>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon ci-orange">🕐</div>
+          <span>Mon–Sat: 8 AM – 8 PM | Sun: 10 AM – 2 PM</span>
+        </div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <h3>📋 Free Enquiry Form</h3>
+      <div class="form-group">
+        <label>Parent / Guardian Name</label>
+        <input type="text" placeholder="Your full name">
+      </div>
+      <div class="form-group">
+        <label>Student's Name</label>
+        <input type="text" placeholder="Student's name">
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" placeholder="+91 XXXXX XXXXX">
+      </div>
+      <div class="form-group">
+        <label>Class / Grade</label>
+        <select>
+          <option value="">Select class</option>
+          <option>Class 6</option>
+          <option>Class 7</option>
+          <option>Class 8</option>
+          <option>Class 9</option>
+          <option>Class 10</option>
+          <option>Class 11</option>
+          <option>Class 12</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Subject(s) of Interest</label>
+        <textarea placeholder="e.g. Maths, Science, or all subjects..."></textarea>
+      </div>
+      <button class="btn-submit" onclick="alert('Thank you! We will contact you within 24 hours. 🎉')">Send Enquiry 🚀</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <a href="#home" class="footer-logo">ABC <span>Classes</span></a>
+  <p>© 2025 ABC Classes. All rights reserved.</p>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#courses">Courses</a>
+    <a href="#fees">Fees</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
