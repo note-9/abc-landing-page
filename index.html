@@ -42,13 +42,23 @@
     padding: 0 5%;
     height: 68px;
   }
+
   .nav-logo {
-    font-family: 'Baloo 2', cursive;
-    font-size: 1.8rem;
-    font-weight: 800;
-    color: var(--dark);
-    text-decoration: none;
-  }
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--dark);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.logo-img {
+  height: 42px;
+  width: 42px;
+  object-fit: contain;
+}
   .nav-logo span { color: var(--orange); }
   .nav-links {
     display: flex;
@@ -366,7 +376,46 @@
     margin: 0.2rem 0;
   }
   .faculty-card .exp { font-size: 0.82rem; color: var(--muted); }
+.faculty-team-card {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 2rem;
+}
 
+.faculty-photo-group {
+  width: 100%;
+  max-width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 20px;
+  display: block;
+  margin: 0 auto 2rem;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.12);
+}
+
+.faculty-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  text-align: center;
+}
+
+.faculty-info h4 {
+  font-family: 'Baloo 2', cursive;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+@media (max-width: 768px) {
+  .faculty-info-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faculty-photo-group {
+    max-width: 240px;
+    height: 240px;
+  }
+}
   /* TESTIMONIALS */
   #results { background: linear-gradient(135deg, var(--dark) 0%, #16213E 100%); }
   .results-header { text-align: center; margin-bottom: 3rem; }
@@ -629,7 +678,10 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#home" class="nav-logo">ABC <span>Classes</span></a>
+<a href="#home" class="nav-logo">
+  <img src="logo.jpg" alt="ABC Classes Logo" class="logo-img">
+  <span>ABC Classes</span>
+	</a>
   <ul class="nav-links">
     <li><a href="#home">Home</a></li>
     <li><a href="#about">About</a></li>
@@ -772,18 +824,26 @@
     <p class="section-sub" style="margin: 0 auto;">Experienced, passionate educators who go beyond the textbook.</p>
   </div>
   <div class="faculty-grid">
-    <div class="faculty-card">
-      <div class="faculty-avatar av-blue">👨‍🏫</div>
-      <h4>Mr. Amit Kumar Bhawsar</h4>
-      <div class="subject">Mathematics</div>
-      <div class="exp">15+ Years Experience</div>
+  <div class="faculty-card faculty-team-card">
+
+    <img src="faculty-team.jpg" alt="ABC Classes Faculty" class="faculty-photo-group">
+
+    <div class="faculty-info-grid">
+
+      <div class="faculty-info">
+        <h4>Mr. Amit Kumar Bhawsar</h4>
+        <div class="subject">Mathematics</div>
+        <div class="exp">15+ Years Experience</div>
+      </div>
+
+      <div class="faculty-info">
+        <h4>Mrs. Sheetal Bhawsar</h4>
+        <div class="subject">Science • Biology</div>
+        <div class="exp">12+ Years Experience • M.Sc. Chemistry</div>
+      </div>
+
     </div>
-    <div class="faculty-card">
-      <div class="faculty-avatar av-orange">👩‍🔬</div>
-      <h4>Mrs. Sheetal Bhawsar</h4>
-      <div class="subject">Science • Biology</div>
-      <div class="exp">12+ Years Experience • M.Sc. Chemistry</div>
-    </div>
+
   </div>
 </section>
 
