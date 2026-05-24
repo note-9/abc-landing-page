@@ -46,9 +46,10 @@ body {
 /* LOGO IMAGE BRANDING */
 .logo-img {
   height: 42px;         
-  width: auto;          
+  width: auto;
+  border-radius: 50%
   display: block;
-  object-fit: contain;
+  object-fit: cover;
 }
 
 /* CORRECTED NAVIGATION ALIGNMENT */
