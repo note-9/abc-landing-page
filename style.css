@@ -47,9 +47,9 @@ body {
 .logo-img {
   height: 42px;         
   width: auto;
-  border-radius: 50%
+  border-radius: 50%;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* CORRECTED NAVIGATION ALIGNMENT */
