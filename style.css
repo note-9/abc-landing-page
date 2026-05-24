@@ -37,7 +37,7 @@ body {
 
 /* LOGO IMAGE BRANDING */
 .logo-img {
-  height: 48px;         /* Standardized structural height */
+  height: 44px;         /* Standardized structural height */
   width: auto;          /* Maintains proportions clean */
   display: block;
   object-fit: contain;
