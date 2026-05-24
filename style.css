@@ -1,0 +1,300 @@
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:'Nunito',sans-serif;
+  background:#FAFAF8;
+  color:#1F2937;
+  line-height:1.6;
+}
+
+:root{
+  --primary:#2F5D8C;
+  --primary-dark:#1E3A5F;
+
+  --accent:#F97316;
+  --accent-hover:#EA580C;
+
+  --teal:#14B8A6;
+
+  --bg:#FAFAF8;
+  --surface:#ffffff;
+  --surface-alt:#F4F6F8;
+
+  --text:#1F2937;
+  --muted:#6B7280;
+
+  --border:#E5E7EB;
+}
+
+/* NAV */
+
+nav{
+  position:fixed;
+  top:0;
+  left:0;
+  right:0;
+  z-index:1000;
+
+  height:72px;
+
+  background:rgba(255,255,255,.9);
+  backdrop-filter:blur(14px);
+
+  border-bottom:1px solid rgba(229,231,235,.7);
+
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+
+  padding:0 5%;
+}
+
+.nav-logo{
+  font-family:'Baloo 2',cursive;
+  font-size:1.7rem;
+  font-weight:800;
+  color:var(--primary-dark);
+  text-decoration:none;
+}
+
+.nav-logo span{
+  color:var(--accent);
+}
+
+.nav-links{
+  display:flex;
+  gap:2rem;
+  list-style:none;
+}
+
+.nav-links a{
+  text-decoration:none;
+  font-weight:700;
+  color:var(--text);
+  transition:.2s;
+}
+
+.nav-links a:hover{
+  color:var(--accent);
+}
+
+.nav-cta{
+  background:var(--accent);
+  color:white !important;
+  padding:.7rem 1.3rem;
+  border-radius:999px;
+}
+
+.nav-cta:hover{
+  background:var(--accent-hover);
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+
+  background:
+  linear-gradient(
+    135deg,
+    #1E3A5F 0%,
+    #2F5D8C 100%
+  );
+
+  display:flex;
+  align-items:center;
+
+  padding:110px 5% 60px;
+}
+
+.hero h1{
+  font-family:'Baloo 2';
+  font-size:clamp(2.8rem,5vw,4rem);
+  line-height:1.1;
+  color:white;
+}
+
+.hero p{
+  color:rgba(255,255,255,.82);
+  font-size:1.1rem;
+  max-width:620px;
+  margin-top:1rem;
+}
+
+.highlight{
+  color:#FDBA74;
+}
+
+.btn-primary{
+  background:var(--accent);
+  color:white;
+  padding:1rem 2rem;
+  border-radius:999px;
+  font-weight:800;
+  text-decoration:none;
+  display:inline-block;
+  margin-top:2rem;
+  transition:.25s;
+}
+
+.btn-primary:hover{
+  transform:translateY(-2px);
+  background:var(--accent-hover);
+}
+
+/* SECTIONS */
+
+section{
+  padding:90px 5%;
+}
+
+.section-title{
+  font-family:'Baloo 2';
+  font-size:2.5rem;
+  margin-bottom:.7rem;
+  color:var(--primary-dark);
+}
+
+.section-sub{
+  color:var(--muted);
+  max-width:650px;
+}
+
+/* CARDS */
+
+.course-card,
+.faculty-card,
+.testimonial-card,
+.fees-card{
+  background:white;
+  border-radius:22px;
+
+  box-shadow:
+  0 6px 18px rgba(15,23,42,.05);
+
+  transition:.25s ease;
+}
+
+.course-card:hover,
+.faculty-card:hover,
+.fees-card:hover{
+  transform:translateY(-6px);
+  box-shadow:
+  0 20px 36px rgba(15,23,42,.08);
+}
+
+.course-card{
+  padding:2rem;
+}
+
+/* FACULTY */
+
+#faculty{
+  background:white;
+}
+
+.faculty-card{
+  padding:2rem;
+}
+
+.faculty-photo-group{
+  width:280px;
+  height:280px;
+  object-fit:cover;
+
+  border-radius:20px;
+
+  display:block;
+  margin:0 auto 2rem;
+}
+
+/* RESULTS */
+
+#results{
+  background:linear-gradient(
+    135deg,
+    #1E293B 0%,
+    #334155 100%
+  );
+}
+
+#results .section-title{
+  color:white;
+}
+
+#results .section-sub{
+  color:rgba(255,255,255,.72);
+}
+
+.testimonial-card{
+  background:rgba(255,255,255,.08);
+  backdrop-filter:blur(8px);
+  color:white;
+}
+
+/* CONTACT */
+
+.contact-form{
+  background:white;
+  border-radius:24px;
+  padding:2rem;
+  box-shadow:0 10px 30px rgba(0,0,0,.06);
+}
+
+input,
+textarea,
+select{
+  width:100%;
+  padding:.9rem 1rem;
+  border:1px solid var(--border);
+  border-radius:14px;
+  font-family:inherit;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+  outline:none;
+  border-color:var(--accent);
+}
+
+/* FOOTER */
+
+footer{
+  background:#0F172A;
+  color:#CBD5E1;
+  padding:2rem 5%;
+}
+
+.footer-logo{
+  color:white;
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  .nav-links{
+    display:none;
+  }
+
+  .about-grid,
+  .contact-grid,
+  .faculty-info-grid{
+    grid-template-columns:1fr;
+  }
+
+  .faculty-photo-group{
+    width:220px;
+    height:220px;
+  }
+
+}
