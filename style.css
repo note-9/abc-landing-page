@@ -35,6 +35,14 @@ body {
   line-height: 1.7;
 }
 
+/* LOGO IMAGE BRANDING */
+.logo-img {
+  height: 48px;         /* Standardized structural height */
+  width: auto;          /* Maintains proportions clean */
+  display: block;
+  object-fit: contain;
+}
+
 /* NAVIGATION */
 nav {
   position: fixed;
@@ -51,19 +59,6 @@ nav {
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid rgba(226, 232, 240, 0.8);
-}
-
-.nav-logo {
-  font-family: 'Baloo 2', cursive;
-  font-size: 2.1rem;
-  font-weight: 800;
-  text-decoration: none;
-  color: var(--primary);
-  letter-spacing: -0.5px;
-}
-
-.nav-logo span {
-  color: var(--accent);
 }
 
 .nav-links {
@@ -167,7 +162,7 @@ nav {
   font-weight: 800;
   text-decoration: none;
   transition: var(--transition);
-  text-center: center;
+  text-align: center;
 }
 
 .btn-primary {
@@ -424,21 +419,19 @@ section {
   font-weight: 800;
   padding: 0.3rem 0.8rem;
   border-radius: 999px;
+  z-index: 2;
 }
 
-.faculty-avatar {
-  width: 90px;
-  height: 90px;
-  background: linear-gradient(135deg, #3b82f6 0%, #1e3a8a 100%);
-  color: var(--white);
+/* Updated Picture Layout */
+.faculty-img {
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  font-weight: 800;
+  object-fit: cover;                     /* Prevents distortion */
+  display: block;
   margin: 0 auto 1.5rem;
-  box-shadow: 0 8px 16px rgba(30, 58, 138, 0.2);
+  border: 4px solid var(--white);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
 }
 
 .faculty-card h3 {
@@ -545,18 +538,6 @@ footer {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.footer-logo {
-  text-decoration: none;
-  font-family: 'Baloo 2', cursive;
-  font-size: 1.8rem;
-  color: var(--white);
-  font-weight: 800;
-}
-
-.footer-logo span {
-  color: var(--accent);
-}
-
 /* RESPONSIVE BREAKPOINTS */
 @media (max-width: 1024px) {
   .hero-grid {
@@ -571,7 +552,7 @@ footer {
     justify-content: center;
   }
   .hero-visual {
-    display: none; /* Hide visual clutter for mid-tier tablets/mobiles */
+    display: none;
   }
   .about-grid {
     grid-template-columns: 1fr;
@@ -584,7 +565,7 @@ footer {
     padding: 0 5%;
   }
   .nav-links {
-    display: none; /* Can be hooked later to an active hamburger slider menu */
+    display: none;
   }
   section {
     padding: 80px 5%;
