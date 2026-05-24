@@ -48,6 +48,7 @@ body {
   height: 42px;         
   width: auto;
   border-radius: 50%;
+  border: 4px solid var(--card-tint-warm);
   display: block;
   object-fit: contain;
 }
